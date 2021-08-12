@@ -23,8 +23,8 @@ This project implements a wildlife camera using a Raspberry Pico Zero W.
 ```
 git clone https://github.com/adriangalera/wildlife-camera.git
 cd wildlife-camera
-sudo chmod +x ./install
-sudo ./install
+sudo chmod +x ./tools/install
+sudo ./tools/install
 ```
    
 ## Tips
