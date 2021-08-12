@@ -22,11 +22,11 @@
     function killBtn() {
         const button = document.getElementById('kill-btn');
         button.addEventListener('click', async _ => {
+          alert("You will lose communication!");
           try {
             const response = await fetch('/kill/radio', {
               method: 'post',
             });
-            alert("You have lost communication!");
           } catch(err) {
             console.error(`Error: ${err}`);
           }
@@ -35,6 +35,7 @@
 
     document.addEventListener('DOMContentLoaded', generateLinks, false);
     document.addEventListener('DOMContentLoaded', killBtn, false);
+
 
 </script>
 </body>
