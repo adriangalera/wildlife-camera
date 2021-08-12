@@ -5,6 +5,6 @@ echo "Installing the service"
 cp tools/wild.service /etc/systemd/system/wild.service
 chmod 644 /etc/systemd/system/wild.service
 chown root:root /etc/systemd/system/wild.service
-service wild enable
-service wild start
+systemctl enable wild
+systemctl start wild
 echo "Running ..."
