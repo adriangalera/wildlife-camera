@@ -19,6 +19,14 @@ This project implements a wildlife camera using a Raspberry Pico Zero W.
    will find your device in `192.168.20.99`. Apart from pairing the devices, you need also to
    run `trust aa:bb:cc:dd:ee:ff` command on `bluetoothctl`.
    
+6. Clone this project and run the installation script: 
+```
+git clone https://github.com/adriangalera/wildlife-camera.git
+cd wildlife-camera
+sudo chmod +x ./install
+sudo ./install
+```
+   
 ## Tips
 
 While setting the bluetooth access, the default routes go to bluetooth, then the device does not know how to reach internet.

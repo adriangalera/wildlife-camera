@@ -1,0 +1,14 @@
+# --------------------------------------------------------------------------
+# Systemd service definition for wild.service.
+#
+# --------------------------------------------------------------------------
+
+[Unit]
+After=bluetooth.service
+PartOf=bluetooth.service
+
+[Service]
+ExecStart=python /home/pi/wildlife-camera/wildcamera-api/api.py
+
+[Install]
+WantedBy=bluetooth.target

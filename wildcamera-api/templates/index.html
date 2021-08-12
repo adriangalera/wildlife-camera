@@ -16,8 +16,15 @@
         let linksContainer = document.getElementById("links");
         let streamingUrl = `http://${host}:8081`
         let liStreaming = document.createElement("li")
-        linksContainer.appendChild(liStreaming)
         liStreaming.innerHTML = `<a href="${streamingUrl}">Streaming URL</a>`
+
+        let motioneyeuiUrl = `http://${host}:8765`
+        let liMotionui = document.createElement("li")
+        liMotionui.innerHTML = `<a href="${motioneyeuiUrl}">Motion Eye</a>`
+
+
+        linksContainer.appendChild(liStreaming)
+        linksContainer.appendChild(liMotionui)
     }
     function killBtn() {
         const button = document.getElementById('kill-btn');

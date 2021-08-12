@@ -1,0 +1,3 @@
+#!/bin/bash
+pip install -r wildcamera-api/requirements.txt
+cp wild.service /etc/systemd/system/wild.service
