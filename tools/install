@@ -1,3 +1,8 @@
 #!/bin/bash
+echo "Installing dependencies ..."
 pip install -r wildcamera-api/requirements.txt
+echo "Installing the service"
 cp wild.service /etc/systemd/system/wild.service
+service enable wild
+service wild start
+echo "Running ..."
