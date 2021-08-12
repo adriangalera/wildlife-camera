@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>Wildlife camera</title>
+</head>
+<body>
+<h1>Wildlife camera</h1>
+
+<h2>Useful links</h2>
+<ul id="links"></ul>
+<h2>Actions</h2>
+<button id="kill-btn">Kill radio</button>
+<script>
+    function generateLinks()  {
+        let host = window.location.hostname
+        let linksContainer = document.getElementById("links");
+        let streamingUrl = `http://${host}:8081`
+        let liStreaming = document.createElement("li")
+        linksContainer.appendChild(liStreaming)
+        liStreaming.innerHTML = `<a href="${streamingUrl}">Streaming URL</a>`
+    }
+    function killBtn() {
+        const button = document.getElementById('kill-btn');
+        button.addEventListener('click', async _ => {
+          try {
+            const response = await fetch('/kill/radio', {
+              method: 'post',
+            });
+            alert("You have lost communication!");
+          } catch(err) {
+            console.error(`Error: ${err}`);
+          }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', generateLinks, false);
+    document.addEventListener('DOMContentLoaded', killBtn, false);
+
+</script>
+</body>
+</html>
