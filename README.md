@@ -18,3 +18,12 @@ This project implements a wildlife camera using a Raspberry Pico Zero W.
    guide: https://nano.dannyvacar.ca/post/2019-12-13-raspberry-pi-ssh-over-bluetooth/. Ignore the part of `wlan0`. You
    will find your device in `192.168.20.99`. Apart from pairing the devices, you need also to
    run `trust aa:bb:cc:dd:ee:ff` command on `bluetoothctl`.
+   
+## Tips
+
+While setting the bluetooth access, the default routes go to bluetooth, then the device does not know how to reach internet.
+If you need to use internet, execute the following:
+
+```
+sudo route add default gateway 192.168.1.1
+```
