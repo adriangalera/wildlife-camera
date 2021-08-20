@@ -1,0 +1,1 @@
+systemctl disable btnap.service wild.service motion motioneye.service
