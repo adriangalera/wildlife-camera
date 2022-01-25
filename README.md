@@ -40,3 +40,7 @@ Take a shot with the camera:
 ```
 raspistill -o test.jpg
 ```
+
+## Things to try:
+
+- https://raspberrypi.stackexchange.com/questions/29504/how-can-i-set-up-a-bluetooth-pan-connection-with-a-raspberry-pi-and-an-ipod
