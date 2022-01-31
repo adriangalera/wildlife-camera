@@ -3,12 +3,12 @@ printf "Installing bluez-tools ...\n\n"
 sudo apt-get install bluez-tools -y
 
 printf "Setting up the services required ...\n\n"
-cat >/etc/systemd/network/pan0.netdev <<EOF
+sudo tee /etc/systemd/network/pan0.netdev &>/dev/null <<EOF
 [NetDev]
 Name=pan0
 Kind=bridge
 EOF
-cat >/etc/systemd/network/pan0.network <<EOF
+sudo tee /etc/systemd/network/pan0.network &>/dev/null <<EOF
 [Match]
 Name=pan0
 
@@ -16,7 +16,7 @@ Name=pan0
 Address=172.20.1.1/24
 DHCPServer=yes
 EOF
-cat >/etc/systemd/system/bt-agent.service <<EOF
+sudo tee /etc/systemd/system/bt-agent.service &>/dev/null <<EOF
 [Unit]
 Description=Bluetooth Auth Agent
 
@@ -27,7 +27,7 @@ Type=simple
 [Install]
 WantedBy=multi-user.target
 EOF
-cat >/etc/systemd/system/bt-network.service <<EOF
+sudo tee /etc/systemd/system/bt-network.service &>/dev/null <<EOF
 [Unit]
 Description=Bluetooth NEP PAN
 After=pan0.network
