@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wild</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background: #000;
+        }
+
+        #vid_container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        #video {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+        }
+
+        #buttons {
+            z-index: 1;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vid_container">
+        <img id="video"></img>
+        <div id="buttons">
+            <button id="reboot" onclick="reboot()">Reboot</button>
+            <button id="standalone" onclick="standalone()">Standalone</button>
+        </div>
+    </div>
+</body>
+<script>
+    const host = window.location.host
+    function setImage() {
+        document.getElementById("video").src = `http://${host}:8765/picture/1/current/?_=${new Date().getTime()}`
+    }
+    function reboot() {
+        fetch(`http://${host}/reboot`, {
+            method: 'POST'
+        }).then(function (res) {
+            if (res.ok) {
+                alert("Restarting...")
+            } else {
+                console.log('Request failed.  Returned status of ' + res.status);
+            }
+        }
+        ).catch(function (e) {
+            alert("connection failed")
+            console.log('Request failed.  Error: ' + e);
+        })
+    }
+    function standalone() {
+        fetch(`http://${host}/standalone`, {
+            method: 'POST'
+        }).then(function (res) {
+            if (res.ok) {
+                alert("Radios blocked...")
+            } else {
+                console.log('Request failed.  Returned status of ' + res.status);
+            }
+        }
+        ).catch(function (e) {
+            alert("connection failed")
+            console.log('Request failed.  Error: ' + e);
+        })
+    }
+    setImage()
+    setInterval(setImage, 1000)
+</script>
+
+</html>
