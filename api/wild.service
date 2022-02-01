@@ -1,0 +1,15 @@
+# --------------------------------------------------------------------------
+# Systemd service definition for wild.service.
+#
+# --------------------------------------------------------------------------
+[Unit]
+Description=Wild
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=pi
+ExecStart=sudo python3 -u /home/pi/wild/api/api.py
+
+[Install]
+WantedBy=multi-user.target
